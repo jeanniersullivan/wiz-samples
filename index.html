@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cloud Security Challenge: A Unified View</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Wiz Background */
+            color: #1F2937; /* Dark text for readability on light background */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .gradient-text {
+            /* Using Wiz Primary and Secondary Blue for gradient */
+            background: linear-gradient(to right, #0154ec, #477dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: #ffffff; /* White card background */
+            border: 1px solid #E5E7EB; /* Light border */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+
+        <header class="text-center my-12 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight gradient-text">Beyond Silos</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">In the complex world of cloud security, teams often operate in isolation. Understanding their unique challenges is the first step toward a unified defense.</p>
+        </header>
+
+        <section id="personas" class="my-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Meet the Cloud Security Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card rounded-xl p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900">Alex "The Sentinel"</h3>
+                    <p class="font-semibold text-[#477dff]">Security Operations Analyst</p>
+                    <p class="mt-2 text-gray-700">On the front lines, triaging alerts and hunting for active threats in real-time.</p>
+                </div>
+                <div class="card rounded-xl p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900">Sarah "The Guardian"</h3>
+                    <p class="font-semibold text-[#febfd6]">Cloud Security Engineer</p>
+                    <p class="mt-2 text-gray-700">The architect, designing and building a secure and compliant cloud foundation.</p>
+                </div>
+                <div class="card rounded-xl p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-2xl font-bold text-gray-900">David "The Code Whisperer"</h3>
+                    <p class="font-semibold text-[#0154ec]">Application Security Engineer</p>
+                    <p class="mt-2 text-gray-700">The code expert, securing applications from the inside out, throughout the SDLC.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="concerns" class="my-20">
+            <div class="card rounded-xl p-6 md:p-8 shadow-lg">
+                <h2 class="text-3xl font-bold text-center mb-2">A World of Worries</h2>
+                <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">While all personas aim for security, their primary concerns differ significantly. This chart compares the relative intensity of their top worries.</p>
+                <div class="chart-container">
+                    <canvas id="concernsChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">The radar chart highlights how Alex is overwhelmed by alert volume, Sarah is focused on foundational misconfigurations, and David is concerned with vulnerabilities embedded in code and third-party libraries.</p>
+            </div>
+        </section>
+
+        <section id="interactions" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-2">Bridging the Gaps</h2>
+            <p class="text-center text-gray-700 mb-12 max-w-2xl mx-auto">Effective security relies on seamless collaboration. In a typical incident, information flows between personas, but friction and delays can occur at each hand-off.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="text-center flex flex-col items-center">
+                    <div class="rounded-full border-2 border-[#477dff] h-24 w-24 flex items-center justify-center text-xl font-bold text-gray-900">Alex</div>
+                    <p class="font-bold mt-2 text-gray-900">SecOps</p>
+                    <p class="text-sm text-gray-700">Detects Anomaly</p>
+                </div>
+                <div class="text-5xl text-gray-400 transform md:-translate-y-4 rotate-90 md:rotate-0">→</div>
+                <div class="text-center flex flex-col items-center">
+                    <div class="rounded-full border-2 border-[#febfd6] h-24 w-24 flex items-center justify-center text-xl font-bold text-gray-900">Sarah</div>
+                    <p class="font-bold mt-2 text-gray-900">Cloud Security</p>
+                    <p class="text-sm text-gray-700">Investigates Infrastructure</p>
+                </div>
+                <div class="text-5xl text-gray-400 transform md:-translate-y-4 rotate-90 md:rotate-0">→</div>
+                 <div class="text-center flex flex-col items-center">
+                    <div class="rounded-full border-2 border-[#0154ec] h-24 w-24 flex items-center justify-center text-xl font-bold text-gray-900">David</div>
+                    <p class="font-bold mt-2 text-gray-900">AppSec</p>
+                    <p class="text-sm text-gray-700">Remediates Code</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="solution" class="my-20">
+            <h2 class="text-3xl font-bold text-center mb-2">The Solution: A Unified Platform</h2>
+            <p class="text-center text-gray-700 mb-12 max-w-3xl mx-auto">A platform like Wiz provides a single source of truth, breaking down silos by giving every persona the context they need. This translates to measurable improvements.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">For Alex: Reduced Noise</h3>
+                    <div class="chart-container h-48 md:h-64">
+                        <canvas id="noiseChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-gray-700">High-fidelity alerts with attack path context mean less time chasing false positives.</p>
+                </div>
+                <div class="card rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">For Sarah: Prioritized Risk</h3>
+                    <div class="chart-container h-48 md:h-64">
+                        <canvas id="riskChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-gray-700">Focus on fixing the 1% of misconfigurations that are actually exploitable.</p>
+                </div>
+                <div class="card rounded-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">For David: Runtime Context</h3>
+                    <div class="chart-container h-48 md:h-64">
+                        <canvas id="contextChart"></canvas>
+                    </div>
+                    <p class="mt-4 text-gray-700">Understand which code vulnerabilities pose a real threat in the live environment.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="interests" class="my-20">
+            <div class="card rounded-xl p-6 md:p-8 shadow-lg">
+                <h2 class="text-3xl font-bold text-center mb-2">What Catches Their Eye?</h2>
+                <p class="text-center text-gray-700 mb-8 max-w-2xl mx-auto">When evaluating a platform, each persona gravitates towards features that solve their most pressing problems.</p>
+                <div class="chart-container h-96 md:h-[500px] max-w-4xl">
+                    <canvas id="interestsChart"></canvas>
+                </div>
+                <p class="text-center text-sm text-gray-600 mt-4">Alex values Attack Path Analysis for triage, Sarah prioritizes IaC Scanning to prevent issues, and David focuses on SCA to manage library risks.</p>
+            </div>
+        </section>
+
+        <footer class="text-center my-12 border-t border-gray-300 pt-8">
+            <p class="text-gray-700">By unifying visibility and providing shared context, organizations can empower their security teams to move faster, collaborate better, and build a more resilient cloud.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth = 16) => {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).length > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine = currentLine ? currentLine + ' ' + word : word;
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const commonTooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const palette = {
+            alexColor: 'rgba(71, 125, 255, 0.7)',  // Secondary #477dff with alpha
+            sarahColor: 'rgba(254, 191, 214, 0.7)', // Secondary #febfd6 with alpha
+            davidColor: 'rgba(1, 84, 236, 0.7)',   // Primary #0154ec with alpha
+            
+            alexBorder: '#477dff',
+            sarahBorder: '#febfd6',
+            davidBorder: '#0154ec',
+
+            gridColor: 'rgba(0, 0, 0, 0.1)', /* Light grid lines on white background */
+            ticksColor: '#4B5563' /* Darker ticks for readability */
+        };
+
+        let charts = {};
+
+        const initializeInfographicCharts = () => {
+            Object.values(charts).forEach(chart => {
+                if (chart && typeof chart.destroy === 'function') {
+                    chart.destroy();
+                }
+            });
+            charts = {};
+
+            charts.concernsChart = new Chart(document.getElementById('concernsChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Alert Fatigue', 'Cloud Misconfiguration', 'Vulnerable Code', 'Tool Sprawl', ['Third-Party', 'Component Risk'], 'Visibility Gaps'],
+                    datasets: [{
+                        label: 'Alex (SecOps)',
+                        data: [9, 5, 3, 8, 4, 7],
+                        backgroundColor: palette.alexColor,
+                        borderColor: palette.alexBorder,
+                        borderWidth: 2,
+                        pointBackgroundColor: palette.alexBorder
+                    }, {
+                        label: 'Sarah (Cloud Security)',
+                        data: [4, 9, 5, 6, 6, 8],
+                        backgroundColor: palette.sarahColor,
+                        borderColor: palette.sarahBorder,
+                        borderWidth: 2,
+                        pointBackgroundColor: palette.sarahBorder
+                    }, {
+                        label: 'David (AppSec)',
+                        data: [2, 4, 9, 5, 9, 6],
+                        backgroundColor: palette.davidColor,
+                        borderColor: palette.davidBorder,
+                        borderWidth: 2,
+                        pointBackgroundColor: palette.davidBorder
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: palette.gridColor },
+                            grid: { color: palette.gridColor },
+                            pointLabels: { color: palette.ticksColor, font: { size: 12 } },
+                            ticks: {
+                                color: palette.ticksColor,
+                                backdropColor: 'transparent',
+                                stepSize: 2
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#374151' } }, /* Dark legend text */
+                        tooltip: {
+                            callbacks: {
+                                title: (tooltipItems) => {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    return Array.isArray(label) ? label.join(' ') : label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const createDonutChart = (elementId, label, data, color, borderColor) => {
+                charts[elementId] = new Chart(document.getElementById(elementId), {
+                    type: 'doughnut',
+                    data: {
+                        labels: [label, 'Remaining'],
+                        datasets: [{
+                            data: data,
+                            backgroundColor: [color, '#E5E7EB'], /* Light gray for remaining on white background */
+                            borderColor: [borderColor, '#E5E7EB'],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        maintainAspectRatio: false,
+                        responsive: true,
+                        cutout: '70%',
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { enabled: false }
+                        }
+                    }
+                });
+            };
+
+            createDonutChart('noiseChart', 'Noise Reduced', [80, 20], palette.alexBorder, palette.alexBorder);
+            createDonutChart('riskChart', 'Risks Prioritized', [99, 1], palette.sarahBorder, palette.sarahBorder);
+            createDonutChart('contextChart', 'Context Provided', [90, 10], palette.davidBorder, palette.davidBorder);
+
+            charts.interestsChart = new Chart(document.getElementById('interestsChart'), {
+                type: 'bar',
+                data: {
+                    labels: [
+                        wrapLabel('Attack Path Analysis'), 
+                        wrapLabel('Agentless Deployment'), 
+                        wrapLabel('IaC Scanning'), 
+                        wrapLabel('Software Composition Analysis (SCA)'), 
+                        wrapLabel('Cloud Infrastructure Entitlement Management (CIEM)')
+                    ],
+                    datasets: [{
+                        label: 'Alex (SecOps)',
+                        data: [9, 6, 4, 5, 7],
+                        backgroundColor: palette.alexColor,
+                        borderColor: palette.alexBorder,
+                        borderWidth: 1
+                    }, {
+                        label: 'Sarah (Cloud Security)',
+                        data: [7, 9, 9, 6, 9],
+                        backgroundColor: palette.sarahColor,
+                        borderColor: palette.sarahBorder,
+                        borderWidth: 1
+                    }, {
+                        label: 'David (AppSec)',
+                        data: [4, 5, 7, 9, 4],
+                        backgroundColor: palette.davidColor,
+                        borderColor: palette.davidBorder,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: palette.gridColor },
+                            ticks: { color: palette.ticksColor }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: palette.ticksColor, font: { size: 12 } }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { color: '#374151' } }, /* Dark legend text */
+                        tooltip: {
+                            callbacks: {
+                                title: (tooltipItems) => {
+                                    const item = tooltipItems[0];
+                                    let label = item.chart.data.labels[item.dataIndex];
+                                    return Array.isArray(label) ? label.join(' ') : label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        window.onload = initializeInfographicCharts;
+    </script>
+</body>
+</html>
